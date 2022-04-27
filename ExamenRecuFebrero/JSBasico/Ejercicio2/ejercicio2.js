@@ -48,7 +48,7 @@ console.log(pruebaFecha3);
 console.log(pruebaFecha4);
 */
 
-pedido = /^PO((\s[0-9]{2}\-[0-9]{4})|(\-[0-9]{2}\-[0-9]{4})|(#\s[0-9]{2}\s[0-9]{4})|(#[0-9]{2}\-[0-9]{4})|(\s[0-9]{6}))$/;
+pedido = /^PO((\s[0-9]{2}\-[0-9]{5})|(\-[0-9]{2}\-[0-9]{4})|(#\s[0-9]{2}\s[0-9]{4})|(#[0-9]{2}\-[0-9]{4})|(\s[0-9]{6}))$/;
 
 let pruebaPedido1 = pedido.test("PO 123456"); //true
 let pruebaPedido2 = pedido.test("PO123456T"); //false
