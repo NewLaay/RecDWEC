@@ -6,21 +6,18 @@ palabra1 = prompt("Escribe la primera palabra:");
 palabra2 = prompt("Escribe la segunda palabra y te diré si es anagrama de la 1: ");
 
 //Creamos array caracter a caracter y ordenamos.
-let arrayPal1 = palabra1.split("").sort();
-let arrayPal2 = palabra2.split("").sort();
+let arrayPal1 = palabra1.split("").sort().join("");
+let arrayPal2 = palabra2.split("").sort().join("");
+
+let boolean = false;
 
 function comprobarAnagramas(palabra1, palabra2){
 		//Si tienen diferente tamaño ya sabemos que son diferentes.
     if(palabra1.length != palabra2.length){
     		return false;
     }
-
-    //Comprobar caracter a caracter que coinciden:
-    for(let i = 0; i<arrayPal1.length;i++){
-    	if(arrayPal1[i] != arrayPal2[i]){
-      	return false;
-      }
-      return true;
+    if(arrayPal1 == arrayPal2){
+    return true;
     }
 }
 
