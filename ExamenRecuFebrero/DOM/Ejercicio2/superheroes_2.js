@@ -1,45 +1,3 @@
-    let jsonObj = {
-        "squadName": "Super hero squad",
-        "homeTown": "Metro City",
-        "formed": 2020,
-        "secretBase": "Super tower",
-        "active": true,
-        "members": [
-        {
-            "name": "Molecule Man",
-            "age": 29,
-            "secretIdentity": "Dan Jukes",
-            "powers": [
-            "Radiation resistance",
-            "Turning tiny",
-            "Radiation blast"
-            ]
-        },
-        {
-            "name": "Madame Uppercut",
-            "age": 39,
-            "secretIdentity": "Jane Wilson",
-            "powers": [
-            "Million tonne punch",
-            "Damage resistance",
-            "Superhuman reflexes"
-            ]
-        },
-        {
-            "name": "Eternal Flame",
-            "age": 1000000,
-            "secretIdentity": "Unknown",
-            "powers": [
-            "Immortality",
-            "Heat Immunity",
-            "Inferno",
-            "Teleportation",
-            "Interdimensional travel"
-            ]
-        }
-        ]
-    };
-
  let jsonObj = {
         "squadName": "Super hero squad",
         "homeTown": "Metro City",
@@ -107,7 +65,7 @@
             h2.innerHTML = members[i].name;
             article.appendChild(h2);
            
-	//Creacion de los 3 parrafos que dicen las características de los superheroes.
+	//Creacion de los 3 parrafos que dicen las caracterÃ­sticas de los superheroes.
             let p1 = document.createElement("p");
             p1.innerHTML = "Secret Identity: " + members[i].secretIdentity;
             article.appendChild(p1);
@@ -138,11 +96,11 @@
                 article.appendChild(ul);
             }
 
-            //Añadir cada elemento a section
+            //AÃ±adir cada elemento a section
             section.appendChild(article);
             
         }
- 	//Una vez añadidos los superHeroes, borrar el boton de insertar.
+ 	//Una vez aÃ±adidos los superHeroes, borrar el boton de insertar.
         borrarBotonInsertar();
 
     }
