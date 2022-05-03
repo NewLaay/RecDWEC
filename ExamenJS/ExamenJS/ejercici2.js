@@ -83,40 +83,11 @@
      
 }
 
-const registroPacientes = new Map([
-    [`AAA024`, `Fernández M. (321790059) -> C/Recoletos, 50`],  
-    [`BCD827`, `Ruíz P. (100973253) -> C/Esquerdo izquierdo, 103`],
-    [`YUN835`,`Benítez E. (154811767) -> Av.Argentina, 5`]
-]);
+var paciente1 = new Paciente("AAA024", "Fernández M.", "(321790059)", "C/Recoletos, 50");
+console.log(paciente1.imprimirDireccion());
 
-var numeroRegistroPaciente;
-var nombrePaciente;
-var numeroSSPaciente;
-var direccionPaciente;
-const agendaPacientes = new Map();
-var contadorPacientes = 0;
+var paciente2 = new Paciente("BCD827", "Ruíz P.", "(100973253)", "C/Esquerdo izquierdo, 103");
+//console.log(paciente2);
 
-// cosas que varian: las variables. 
-//Cosas que no varian: los paréntesis del número, la flecha. Si se pusiera una variable nueva, el formato debería mantenerse
-
-// el mapa tiene como clave el número de registro y como valor el nombre, número de ss y la dirección.
-// Habrá que separar las 2 cosas y después trocear el valor, guardando cada parte en una variable
-
-for (let[numeroRegistro,datos] of registroPacientes){
-		contadorPacientes++;
-    numeroRegistroPaciente = numeroRegistro;
-     // al hacer split el string se convierte en 3 arrays, la primera posición [0] es el nombre del paciente
-    //  datos.split(" (")[0]; == representa la primera parte, el nombre
-   nombrePaciente = datos.split(" (")[0];
-    // la parte que está entre los paréntesis del split no aparecerá. El array se convierte en uno de 2 valores con la información que queda. Al poner el [0] final solo saca el primero de esos valores, que es el numero
-    // el [1] representa la segunda parte, que contiene número [0] y direccion [1]
-    numeroSSPaciente = datos.split(" (")[1].split(") -> ")[0];
-    // saca la parte que falta (direccion)
-    direccionPaciente = datos.split(" (")[1].split(") -> ")[1]
-
-    //poner los pacientes en un set, con un contador y creando objetos paciente
-    agendaPacientes.set(contadorPacientes, new Paciente(numeroRegistroPaciente, nombrePaciente, numeroSSPaciente, direccionPaciente));
-    
-}
-
-console.log(agendaPacientes);
+var paciente3 = new Paciente("YUN835", "Benítez E.", "(154811767)", "Av.Argentina, 5");
+//console.log(paciente3);
