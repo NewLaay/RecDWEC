@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function(event) {
 //Creacion de objeto Date en JS.
 var hoy = new Date();
 
@@ -70,3 +71,4 @@ if(horaEstricta >= 9 && horaEstricta <= 14 && diaEstricto >= 1 && diaEstricto <=
 body.appendChild(h1);
 body.appendChild(p1);
 body.appendChild(p2);
+});
