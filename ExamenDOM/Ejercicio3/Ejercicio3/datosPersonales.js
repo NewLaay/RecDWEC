@@ -1,3 +1,9 @@
+let datosPersonales = document.getElementById("divDatosPersonales");
+let br = document.createElement("br");
+ datosPersonales.appendChild(br);
+  let br2 = document.createElement("br");
+ datosPersonales.appendChild(br2)
+ 
 function validarDatos(formularioId){
 	
   let form = document.getElementById("formulario");
@@ -11,21 +17,25 @@ function validarDatos(formularioId){
   let recuadroApellidos = datosPersonales.getElementsByTagName("input")[1];
   
   let error = false;
- // Si en algÃºn campo no se ha introducido texto, mostrar un mensaje de error bajo del
-//	botÃ³n y cambiar el fondo del campo texto errÃ³neo a rojo.
+ // Si en algún campo no se ha introducido texto, mostrar un mensaje de error bajo del
+//	botón y cambiar el fondo del campo texto erróneo a rojo.
   if (nombre == null || nombre == "" || typeof nombre != 'string' || !isNaN(nombre)){
   	recuadroNombre.style.backgroundColor = 'red';
     error = true;
+  }else{
+  	recuadroNombre.style.backgroundColor = 'white';
   }
   if (apellidos == null || apellidos == ""  || typeof apellidos != 'string' || !isNaN(apellidos)){
   	recuadroApellidos.style.backgroundColor = 'red';
     error = true;
+  }else{
+  	recuadroApellidos.style.backgroundColor = 'white';
   }
  // Crear un br debajo de VALIDAR (creamos dos para que quede mejor)
-  let br = document.createElement("br");
-  datosPersonales.appendChild(br);
-  let br2 = document.createElement("br");
-  datosPersonales.appendChild(br2);
+// let br = document.createElement("br");
+ //datosPersonales.appendChild(br);
+ // let br2 = document.createElement("br");
+// datosPersonales.appendChild(br2);
   //Si cualquiera de los dos tiene un error, crear el mensaje de error debajo de VALIDAR
   if(error){
   	let labelError = document.createElement("label");
@@ -50,17 +60,20 @@ function validarDatos(formularioId){
   let br3 = document.createElement("br");
   rangoEdad.appendChild(br3);
 
-
   let mensaje = "";
 
   if(btn1418.checked){
     mensaje = "Te encuentras en el rango de edad " + btn1418.value;
+    rangoEdad.style.backgroundColor = "rgba(238, 130, 238, 0.192)";
   } else if(btn1926.checked){
     mensaje = "Te encuentras en el rango de edad " + btn1926.value;
+   rangoEdad.style.backgroundColor = "rgba(238, 130, 238, 0.192)";
   }else if(btn2759.checked){
     mensaje = "Te encuentras en el rango de edad " + btn2759.value;
+   rangoEdad.style.backgroundColor = "rgba(238, 130, 238, 0.192)";
   }else if(btnMayor.checked){
     mensaje = "Te encuentras en el rango de edad " + btnMayor.value;
+   rangoEdad.style.backgroundColor = "rgba(238, 130, 238, 0.192)";
   }else{
     mensaje = "Falta la Edad!";
     rangoEdad.style.backgroundColor = "red";
@@ -69,5 +82,6 @@ function validarDatos(formularioId){
   let mensajeEdad = document.createElement("label");
   mensajeEdad.innerHTML = mensaje;
   rangoEdad.appendChild(mensajeEdad);
+
 	
 }
