@@ -1,8 +1,4 @@
-
-    this.telefono;
-    this.hora;
-    this.email;
-    this.web;
+let telefono = /^\(\+[0-9]{1,3}\)[0-9]{9}$/;
 
 
 // TEST PARA COMPROBAR LAS EXPRESIONES REGULARES
@@ -15,7 +11,7 @@ let testTelefono5 = telefono.test('(35)659887410'); // false
 let testTelefono6 = telefono.test('()659887410'); // false
 let testTelefono7 = telefono.test('(+0)659887410'); // true
 
-console.log(testtelefono1);
+console.log(testTelefono1);
 console.log(testTelefono2);
 console.log(testTelefono3);
 console.log(testTelefono4);
@@ -23,6 +19,8 @@ console.log(testTelefono5);
 console.log(testTelefono6);
 console.log(testTelefono7);
 */
+
+let hora = /^(([0-1][0-9])|([2][0-3])):[0-5][0-9]$/;
 
 /*
 let testHora1 = hora.test('00:00'); // true
@@ -37,6 +35,8 @@ console.log(testHora3);
 console.log(testHora4);
 console.log(testHora5);
 */
+
+let email = /^[^байинмпутъщь\s\(\)<>@,;:\"\[\]з%&]{1,64}@[^байинмпутъщь\s\(\)<>@,;:\"\[\]з%&]{1,251}.(com|es|net)$/;
 
 /*
 let testEmail1 = email.test('a@a'); // false
@@ -66,8 +66,9 @@ console.log(testEmail7);
 console.log(testEmail7);
 */
 
+let web = /^http:\/\/www\.[^\.]+\..{3}$/;
 
-
+/*
 let testWeb1 = web.test('http://www.fcbarcelona.com/web/index_idiomes.html'); // false
 let testWeb2 = web.test('http://www.realmadrid.com/cs/Satellite/es/1193040472450/SubhomeEquipo/Baloncesto.htm'); // false
 let testWeb3 = web.test('http://basketzaragoza.net'); // false
@@ -83,3 +84,4 @@ console.log(testWeb4);
 console.log(testWeb5);
 console.log(testWeb6);
 console.log(testWeb7);
+*/
