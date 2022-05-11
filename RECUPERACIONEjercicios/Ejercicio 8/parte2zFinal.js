@@ -69,11 +69,14 @@ h1.innerHTML = "PARTE 2 DEL EJERCICIO";
 body.appendChild(h1);
 
 let select = document.createElement("select");
+select.id = "idSelect";
 body.appendChild(select);
 
+//Bucle para recorrer el array y mostrar nombre y apellidos
 for(let i = 0; i<personas.length; i++){
     let option = document.createElement("option");
-    option.innerHTML = personas[i].nombre + " " + personas[i].apellidos;
+    option.innerHTML = personas[i].nombre + " " + personas[i].apellidos; //Mostrar nombre y apellidos de cada opción
+    option.value = `value${i}`; //Establecemos un valor a cada opción
     select.appendChild(option);
 }
 
@@ -81,9 +84,40 @@ let botonMostrar = document.createElement("button");
 botonMostrar.type = "button";
 botonMostrar.style.marginLeft = "15px";
 botonMostrar.innerHTML = "Mostrar datos";
-//botonMostrar.onclick = "mostrarDatos()";
+botonMostrar.onclick = mostrarDatos;
 body.appendChild(botonMostrar);
 
+//Funcion mostrarDatos
+function mostrarDatos(){
+  let selection = document.getElementById("idSelect");
+  let valorSeleccionado = selection.value;
+  for(let i = 0; i<personas.length; i++){
+      //Mostrar los datos de la persona seleccionada
+      if(valorSeleccionado == `value${i}`){
+         
+        let table = document.createElement("table");
+        body.appendChild(table);
 
+        let tr1 = document.createElement("tr");
+        table.appendChild(tr1);
+        let keysSeleccionadas = (Object.keys(personas[i]));
+        for( let key of keysSeleccionadas){
+            let thKey = document.createElement("th");
+            thKey.innerHTML = key;
+            tr1.appendChild(thKey);
+        }
+
+        let tr2 = document.createElement("tr");
+        table.appendChild(tr2);
+        let valoresSeleccionados = (Object.values(personas[i]));
+        for(let valores of valoresSeleccionados){
+            let tdValor = document.createElement("td");
+            tdValor.innerHTML = valores;
+            tr2.appendChild(tdValor);
+        }
+
+      }
+  }
+}
 
 
