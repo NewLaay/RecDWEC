@@ -47,14 +47,38 @@ preguntaRandom1.innerHTML = preguntas[numRandom][0] + "    ";
   btnSiguiente.setAttribute("pregunta", numRandom);
   body.appendChild(btnSiguiente);
 
-  document.addEventListener('click',(e)=>{
+  //Añadimos event listener a boton
+  btnSiguiente.addEventListener('click',(e)=>{
     if(e.target.type != 'button')  return;
-    validarRespuesta(e.target.id);
+    siguientePregunta();
    })
 
+   //Añadimos event listener al boton de validar respuesta
+   validarRespuesta1.addEventListener('click',(e)=>{
+    if(e.target.type != 'button')  return;
+    validarRespuesta(e.target.id);
+    
+   })
+
+   //Funcion siguiente pregunta, funcionara hasta que se hayan leido todas las preguntas(no se haya pulsado mas de 3 veces el contador)
    function siguientePregunta(){
-    btnSiguiente.disabled = true;
-   }
+     let contadorBoton = 0;
+     //Si el contador del boton es 3, ha mostrado todas las preguntas y se deshabilita. Si no, mostramos otra pregunta aleatoria que no haya salido antes.
+      let numRandom2 = Math.floor(Math.random()*4);
+      if(!setPreguntas.has(preguntas[numRandom2]) && contadorBoton<3){
+        setPreguntas.add(preguntas[numRandom2]);
+        preguntaRandom1.innerHTML = preguntas[numRandom2][0] + "   ";
+        inputRespuesta1.setAttribute("respuesta",numRandom2);
+        validarRespuesta1.id = numRandom2;
+        aSolucion.setAttribute("solucion",numRandom2);
+        preguntaRandom1.appendChild(inputRespuesta1);
+        preguntaRandom1.appendChild(aSolucion);
+        preguntaRandom1.appendChild(validarRespuesta1);
+        btnSiguiente.setAttribute("pregunta",numRandom2);
+        contadorBoton++;
+      }
+    }
+   
 
 
    //Funcion que validará respuesta en funcion del ID seleccionado.
