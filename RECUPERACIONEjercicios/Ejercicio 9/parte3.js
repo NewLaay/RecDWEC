@@ -1,7 +1,7 @@
-var preguntas = [['Â¿CuÃ¡l es la capital de Austria?', 'Viena'], //0,1
-									['Â¿CuÃ¡l es la capital de Noruega?', 'Oslo'], // 1,1
-									['Â¿QuÃ© lengua se habla en Madagascar?', 'Malgache'], //2,1
-									['Â¿CÃ³mo se llaman los habitantes de PanamÃ¡?','PanameÃ±os'] //3,1
+var preguntas = [['¿Cuál es la capital de Austria?', 'Viena'], //0,1
+									['¿Cuál es la capital de Noruega?', 'Oslo'], // 1,1
+									['¿Qué lengua se habla en Madagascar?', 'Malgache'], //2,1
+									['¿Cómo se llaman los habitantes de Panamá?','Panameños'] //3,1
 							];
               
 
@@ -15,7 +15,7 @@ body.appendChild(h1);
 let preguntaRandom1 = document.createElement("p");
 let numRandom = Math.floor(Math.random()*4);
 preguntaRandom1.innerHTML = preguntas[numRandom][0];
-//Hacemos un SET de las preguntas para no repetirlas que nos servirÃ¡ para no repetir la pregunta cuando cliquemos en siguiente pregunta.
+//Hacemos un SET de las preguntas para no repetirlas que nos servirá para no repetir la pregunta cuando cliquemos en siguiente pregunta.
 let setPreguntas = new Set();
 setPreguntas.add(preguntas[numRandom]);
 body.appendChild(preguntaRandom1);
@@ -47,13 +47,13 @@ preguntaRandom1.innerHTML = preguntas[numRandom][0] + "    ";
   btnSiguiente.setAttribute("pregunta", numRandom);
   body.appendChild(btnSiguiente);
 
-  //AÃ±adimos event listener a boton
+  //Añadimos event listener a boton
   btnSiguiente.addEventListener('click',(e)=>{
     if(e.target.type != 'button')  return;
     siguientePregunta();
    })
 
-   //AÃ±adimos event listener al boton de validar respuesta
+   //Añadimos event listener al boton de validar respuesta
    validarRespuesta1.addEventListener('click',(e)=>{
     if(e.target.type != 'button')  return;
     validarRespuesta(e.target.id);
@@ -69,10 +69,13 @@ preguntaRandom1.innerHTML = preguntas[numRandom][0] + "    ";
         setPreguntas.add(preguntas[numRandom2]);
         preguntaRandom1.innerHTML = preguntas[numRandom2][0] + "   ";
         inputRespuesta1.setAttribute("respuesta",numRandom2);
+        inputRespuesta1.value = "";
         validarRespuesta1.id = numRandom2;
         aSolucion.setAttribute("solucion",numRandom2);
         preguntaRandom1.appendChild(inputRespuesta1);
         preguntaRandom1.appendChild(aSolucion);
+        let mensajeSolucion2 = document.querySelector('[solucion]');
+        mensajeSolucion2.innerHTML = "";
         preguntaRandom1.appendChild(validarRespuesta1);
         btnSiguiente.setAttribute("pregunta",numRandom2);
         contadorBoton++;
@@ -80,8 +83,7 @@ preguntaRandom1.innerHTML = preguntas[numRandom][0] + "    ";
     }
    
 
-
-   //Funcion que validarÃ¡ respuesta en funcion del ID seleccionado.
+   //Funcion que validará respuesta en funcion del ID seleccionado.
 function validarRespuesta(resID){
 
   //Declaramos respuesta como el valor con QuerySelector que nos da el atributo del ID seleccionado
@@ -94,7 +96,7 @@ function validarRespuesta(resID){
   let mensajeP = "";
   let respuestaCorrecta = preguntas[resID][1];
    if(respuesta == respuestaCorrecta){
-     mensajeP = "Â¡CORRECTO!";
+     mensajeP = "¡CORRECTO!";
     mensajeSolucion.innerHTML = mensajeP;
      return true;
    }else {
