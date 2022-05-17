@@ -9,7 +9,7 @@ function buscarPalabra(){
     var innerHTML = parrafo1.innerHTML;
     //Declaramos index para saber en que posicion del parrafo se encuentra la palabra buscada
     var index = innerHTML.indexOf(palabra);
-    //Si no encuentra la posiciÃ³n devuelve un -1, si es mayor que uno quiere decir que existe.
+    //Si no encuentra la posición devuelve un -1, si es mayor que uno quiere decir que existe.
     if(index>=0){
         //innerHTML.substring(0,index) va a mostrar el texto que va desde el inicio hasta llegar al index de la palbra que queremos subrayar
         //innerHTML.substring(index, index+palabra.length) ira desde el index hasta el length de la palabra. Sera lo que vamos a subrayar
@@ -35,3 +35,71 @@ function marcarPalabras(){
     
 }
 
+//FUNCION CONTAR PALABRAS : ¿POR QUE NO FUNCIONA SI USO OTRA FUNCION ANTES?
+function contarPalabras(){
+	var parrafo1 = document.getElementById("parrafo").innerHTML;
+  const btnEscribir = document.getElementById("escribir");
+  const palabra = btnEscribir.value;
+ 
+ //Hacemos el toString primero ya que si no nos sale problema de que split no es una función.. Y separamos el parrafo por palabras, de forma que nos quede un array de palabras, que luego podemos recorrer para contar las palabras.
+ var arrayString = parrafo1.toString().split(" ");
+ let contadorPalabra = 0;
+ for(let i = 0; i<arrayString.length; i++){
+ 	if(palabra == arrayString[i]){
+  	contadorPalabra++;
+	 	}
+   }
+   console.log(palabra);
+ let parrafoPalabras = document.createElement("p");
+ parrafoPalabras.innerHTML = `La palabra ${palabra} sale un total de ${contadorPalabra} veces`;
+let h1 = document.getElementsByTagName("h1")[0];
+h1.appendChild(parrafoPalabras);
+}
+
+
+//FUNCION ESTADISTICA PALABRAS: recorrer el array de palabras y contar una a una. Si ya existe, añadir uno al contador de esa palabra.
+//Añadir las diferentes palabras con un SET
+//Como borrar los espacios y las comas?...
+function estadisticaPalabras(){
+	var parrafo1 = document.getElementById("parrafo").innerHTML;
+  var arrayString = parrafo1.toString().split(" ");
+  var totalPalabras = arrayString.length;
+  let mapaPalabras = new Map();
+  
+  let h1 = document.getElementsByTagName("h1")[0];
+  //CREAR TABLA QUE IRA EN EL DOCUMENTO
+  let tabla = document.createElement("table");
+  h1.appendChild(tabla);
+  let trEncabezado = document.createElement("tr");
+  tabla.appendChild(trEncabezado);
+  let th1 = document.createElement("th");
+  th1.innerHTML = "PALABRA";
+  let th2 = document.createElement("th");
+  th2.innerHTML = "N.VECES";
+  let th3 = document.createElement("th");
+  th3.innerHTML = "ESTADÍSTICA";
+  trEncabezado.appendChild(th1);
+  trEncabezado.appendChild(th2);
+  trEncabezado.appendChild(th3);
+  
+  //ARRAY para asignar a palabra la posicion
+  for(let i = 0; i<arrayString.length; i++){
+  	let palabra = arrayString[i].toLowerCase();
+   //OTRO ARRAY PARA RECORRER EL ARRAY Y COMPROBAR CON LA PALABRA DADA LAS DEMAS, Y INCREMENTAR EL CONTADOR
+   	let contadorPalabra = 0;
+   	for (let j = 0; j<arrayString.length;j++){
+   		if(palabra == arrayString[j]){
+    		contadorPalabra++;
+    		}
+      }
+		mapaPalabras.set(palabra,contadorPalabra);
+	}
+  let claves = mapaPalabras.keys();
+  let valores = mapaPalabras.values();
+  for(let clave of claves){
+  	
+  }
+  for(let valor of valores){
+  	
+  }
+}
