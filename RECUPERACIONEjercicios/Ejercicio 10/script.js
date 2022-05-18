@@ -35,13 +35,13 @@ function marcarPalabras(){
     
 }
 
-//FUNCION CONTAR PALABRAS : ¿POR QUE NO FUNCIONA SI USO OTRA FUNCION ANTES?
+//FUNCION CONTAR PALABRAS : ¿POR QUE NO FUNCIONA SI USO OTRA FUNCION ANTES? -> por que las funciones de antes modifican las clases (higlight y mark) y se modifica el arrayString
 function contarPalabras(){
 	var parrafo1 = document.getElementById("parrafo").innerHTML;
   const btnEscribir = document.getElementById("escribir");
   const palabra = btnEscribir.value;
- 
  //Hacemos el toString primero ya que si no nos sale problema de que split no es una función.. Y separamos el parrafo por palabras, de forma que nos quede un array de palabras, que luego podemos recorrer para contar las palabras.
+ 
  var arrayString = parrafo1.toString().split(" ");
  let contadorPalabra = 0;
  for(let i = 0; i<arrayString.length; i++){
@@ -49,7 +49,6 @@ function contarPalabras(){
   	contadorPalabra++;
 	 	}
    }
-   console.log(palabra);
  let parrafoPalabras = document.createElement("p");
  parrafoPalabras.innerHTML = `La palabra ${palabra} sale un total de ${contadorPalabra} veces`;
 let h1 = document.getElementsByTagName("h1")[0];
@@ -96,10 +95,18 @@ function estadisticaPalabras(){
 	}
   let claves = mapaPalabras.keys();
   let valores = mapaPalabras.values();
-  for(let clave of claves){
-  	
-  }
-  for(let valor of valores){
-  	
-  }
+  let numPalabrasTot = mapaPalabras.size;
+ for(let estadistica of mapaPalabras){
+ 	let trEstadistica = document.createElement("tr");
+  tabla.appendChild(trEstadistica);
+  let th1 = document.createElement("th");
+  th1.innerHTML = estadistica[0];
+  let th2 = document.createElement("th");
+  th2.innerHTML = estadistica[1];
+  let th3 = document.createElement("th");
+  th3.innerHTML = (estadistica[1])/numPalabrasTot;
+  trEstadistica.appendChild(th1);
+  trEstadistica.appendChild(th2);
+  trEstadistica.appendChild(th3);
+ }
 }
