@@ -1,4 +1,4 @@
-﻿function Paciente(numeroRegistro,nombreCompleto,numeroSS,direccion){
+function Paciente(numeroRegistro,nombreCompleto,numeroSS,direccion){
 
 	this.comprobarPatrones = function (elementoAComprobar, tipoComprobacion) {
 
@@ -42,19 +42,19 @@
   }
   
    this.imprimirNumeroRegistro = function () {
-        return numeroRegistro;
+        return this.numeroRegistro;
     }
 
     this.imprimirNombrecompleto = function () {
-        return nombreCompleto;
+        return this.nombreCompleto;
     }
 
     this.imprimirNumeroSS = function () {
-        return numeroSS;
+        return this.numeroSS;
     }
 
     this.imprimirDireccion = function () {
-        return direccion;
+        return this.direccion;
     }
 
     if (this.comprobarPatrones(numeroRegistro, 'numeroRegistro')) {
@@ -80,14 +80,17 @@
     } else {
         this.direccion = "";
     }
-     
 }
 
 var paciente1 = new Paciente("AAA024", "Fernández M.", "(321790059)", "C/Recoletos, 50");
 console.log(paciente1.imprimirDireccion());
+paciente1.modificarNumeroRegistro("AAA026");
+console.log(paciente1.imprimirNumeroRegistro());
 
 var paciente2 = new Paciente("BCD827", "Ruíz P.", "(100973253)", "C/Esquerdo izquierdo, 103");
-//console.log(paciente2);
+console.log(paciente2.imprimirNumeroSS());
+paciente2.modificarNumeroSS(333);
+console.log(paciente2.imprimirNumeroSS());
 
 var paciente3 = new Paciente("YUN835", "Benítez E.", "(154811767)", "Av.Argentina, 5");
 //console.log(paciente3);
