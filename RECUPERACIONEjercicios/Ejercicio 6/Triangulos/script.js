@@ -1,23 +1,40 @@
-document.getElementById('dibuixarTriangle').addEventListener('click',() => {
-	let triangulo = document.getElementById("opciones").value;
-  let rdo = "";
-	for (let i = 1; i<=triangulo; i++){
-  	for(let j = 0; j<i; j++){
-    	rdo += '#';
+// Declaración de variables
+var numCatetos, resultado;
+
+function agregarTriangulos(numCatetos) {
+
+  numCatetos = document.getElementById('catet').value;;
+  resultado = document.getElementById("salida");
+
+  trianguloNormal(numCatetos);
+  trianguloInvertido(numCatetos);
+
+}
+
+// Imprime en pantalla el primer triángulo con ángulo el recto a la izquierda de la pantalla
+function trianguloNormal(numCatetos) {
+
+  for (let i = 1; i <= numCatetos; i++) {
+    for (let j = numCatetos - i; j < numCatetos; j++) {
+      resultado.innerHTML += "#";
+      resultado.style.fontWeight = "bolder";
+      resultado.style.color = "#dc143c"
     }
-    rdo += "\n";
+    resultado.innerHTML += "<br>";
   }
-	
-  let rdoInverso = "";
-  for (let i = 1; i<=triangulo; i++){
-  	for(let j = 0; j < triangulo - 1; j++){
-    	rdoInverso += " ";
+}
+
+// Imprime en pantalla el segundo triángulo con ángulo el recto a la derecha de la pantalla
+function trianguloInvertido(numCatetos) {
+
+  for (let i = 1; i <= numCatetos; i++) {
+    for (let k = i; k < numCatetos; k++) {
+      resultado.innerHTML += "&nbsp ";
     }
-    for(let k = 0; k<i; k++){
-    	rdoInverso += "#";
+    for (let j = numCatetos - i; j < numCatetos; j++) {
+      resultado.innerHTML += "#";
     }
-    rdoInverso += "\n";
+    resultado.innerHTML += "<br>";
+    document.getElementById("boton").disabled = true; // Deshabilita el botón una vez generados los triángulos
   }
-  
-  //REVISAR EJERCICIO
-});
+}
