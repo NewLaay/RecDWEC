@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Triangulos</title>
-    <script src="script.js"></script>
+    <title>Actividad 6 - TRIÁNGULOS</title>
+    <link rel="stylesheet" href="estilos.css">
+
 </head>
+
 <body>
-  <p>Introdueix la longitud del catet:</p>
-  <select id="opciones">
-    <option value=1>1</option>
-    <option value=2>2</option>
-    <option value=3>3</option>
-    <option value=4>4</option>
-    <option value=5>5</option>
-    <option value=6>6</option>
-    <option value=7>7</option>
-    <option value=8>8</option>
-    <option value=9>9</option>
-    <option value=10>10</option>
-  </select>
-  <br>
-  <br>
-  <button id="dibuixarTriangle">
-  Dibuixar TRIANGLE
-  </button>
+    <div id="contenedor">
+        <Label>Introdueix la longitud del catet: </Label>
+         
+            <input id="catet" type="number" name="catetos" value="1" min="1"><br>
+            
+        <input type="button" id="boton" value="Dibuixar TRIANGLE" onclick="agregarTriangulos()">
+        <div id="salida"></div>
+    </div>
+    <script src="script.js"></script>
+
 </body>
+
 </html>
